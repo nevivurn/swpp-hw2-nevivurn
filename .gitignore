@@ -153,3 +153,7 @@ tags
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# custom
+# just for my dev environment
+/.env.development
