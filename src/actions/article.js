@@ -45,7 +45,6 @@ export const createComment = comment => {
     const { data } = await axios.post(`/api/comments`, {
       ...comment,
     });
-    console.log('hiya:', data);
     return await dispatch({
       type: 'CREATE_COMMENT',
       comment: data,

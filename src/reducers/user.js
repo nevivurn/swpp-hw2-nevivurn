@@ -3,7 +3,6 @@ const initialState = {
 };
 
 const login = (state = initialState, action) => {
-  console.log('r/u:', state, action);
   switch (action.type) {
     case 'GET_USERS':
       return { ...state, users: action.users };
