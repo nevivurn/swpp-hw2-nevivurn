@@ -48,9 +48,7 @@ const Login = ({ loggedInUser, getUsers, loggedIn }) => {
 };
 
 const mapStateToProps = state => ({
-  loggedInUser: state.user.users.find(
-    user => user && user.logged_in,
-  ),
+  loggedInUser: state.user.users.find(user => user.logged_in),
 });
 
 const mapDispatchToProps = dispatch => ({

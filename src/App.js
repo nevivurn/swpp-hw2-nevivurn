@@ -6,6 +6,7 @@ import Login from './containers/Login';
 import LogoutButton from './containers/LogoutButton';
 import ArticleListScreen from './containers/ArticleListScreen';
 import ArticleDetailScreen from './containers/ArticleDetailScreen';
+import ArticleEditScreen from './containers/ArticleEditScreen';
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
           <Route exact path='/articles/:id'>
             <LogoutButton/>
             <ArticleDetailScreen/>
+          </Route>
+          <Route exact path='/articles/:id/edit'>
+            <LogoutButton/>
+            <ArticleEditScreen/>
           </Route>
 
           {/* by default, go to login */}

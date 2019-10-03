@@ -6,6 +6,7 @@ export {
 
 export {
   getArticles,
+  editArticle,
   getArticle,
   deleteArticle,
   getComments,

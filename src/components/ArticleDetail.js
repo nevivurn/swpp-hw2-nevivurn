@@ -74,7 +74,7 @@ const ArticleDetail =({
       </button>
       <button
         id='back-detail-article-button'
-        onClick={ () => history.push(`/articles/${article.id}/edit`) }
+        onClick={ () => history.push(`/articles`) }
       >
         go back
       </button>
