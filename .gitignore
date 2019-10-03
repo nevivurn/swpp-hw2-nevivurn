@@ -155,6 +155,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # custom
-# just for my dev environment
-/.env.development
 /api/_db.json
