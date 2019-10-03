@@ -10,9 +10,10 @@ export const getArticles = () => {
   };
 };
 
-export const createArticle = article => {
+export const createArticle = (article, cb) => {
   return async dispatch => {
     const { data } = await axios.post(`/api/articles`, {...article});
+    cb(data);
     return await dispatch({
       type: 'CREATE_ARTICLE',
       article: data,

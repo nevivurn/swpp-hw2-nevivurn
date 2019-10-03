@@ -71,7 +71,6 @@ const ArticlePreviewTab = ({ author, title, content }) => {
 };
 
 const ArticleEdit = ({ actionName, commit, author, article }) => {
-  const history = useHistory();
   const [ openTab, setOpenTab ] = useState('write');
   const [ title, setTitle ] = useState(article && article.title ? article.title : '');
   const [ content, setContent ] = useState(article && article.content ? article.content : '');
@@ -88,7 +87,6 @@ const ArticleEdit = ({ actionName, commit, author, article }) => {
               title,
               content,
             });
-            history.goBack();
           }
         }
       />

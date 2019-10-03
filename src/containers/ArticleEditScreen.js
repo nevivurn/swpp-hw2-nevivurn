@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router';
 
 import{ editArticle } from '../actions';
 
@@ -8,6 +8,7 @@ import ArticleEdit from '../components/ArticleEdit';
 
 const ArticleEditScreen = ({ loggedInUser, articles, editArticle }) => {
   const { id } = useParams();
+  const history = useHistory();
 
   if (!loggedInUser) {
     return null;
@@ -22,7 +23,10 @@ const ArticleEditScreen = ({ loggedInUser, articles, editArticle }) => {
     <ArticleEdit
       actionName='edit'
       commit={
-        article => editArticle({ ...article, id })
+        article => {
+          editArticle({ ...article, id })
+          history.push(`/articles/${id}`);
+        }
       }
       author={loggedInUser}
       article={article}
