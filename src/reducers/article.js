@@ -8,6 +8,10 @@ const article = (state = initialState, action) => {
     case 'GET_ARTICLES':
       return { ...state, articles: action.articles };
 
+    case 'CREATE_ARTICLE':
+      const createArticles = [ ...state.articles, action.article ];
+      return { ...state, articles: createArticles };
+
     case 'EDIT_ARTICLE':
       const editArticles = state.articles.map(
         article => article.id !== action.article.id

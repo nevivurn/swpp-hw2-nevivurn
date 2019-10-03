@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './containers/Login';
 import LogoutButton from './containers/LogoutButton';
 import ArticleListScreen from './containers/ArticleListScreen';
+import ArticleCreateScreen from './containers/ArticleCreateScreen';
 import ArticleDetailScreen from './containers/ArticleDetailScreen';
 import ArticleEditScreen from './containers/ArticleEditScreen';
 
@@ -19,6 +20,10 @@ function App() {
           <Route exact path='/articles'>
             <LogoutButton/>
             <ArticleListScreen/>
+          </Route>
+          <Route exact path='/articles/create'>
+            <LogoutButton/>
+            <ArticleCreateScreen/>
           </Route>
           <Route exact path='/articles/:id'>
             <LogoutButton/>

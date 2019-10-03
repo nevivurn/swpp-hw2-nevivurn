@@ -10,11 +10,19 @@ export const getArticles = () => {
   };
 };
 
+export const createArticle = article => {
+  return async dispatch => {
+    const { data } = await axios.post(`/api/articles`, {...article});
+    return await dispatch({
+      type: 'CREATE_ARTICLE',
+      article: data,
+    });
+  };
+};
+
 export const editArticle = article => {
   return async dispatch => {
-    const { data } = await axios.patch(`/api/articles/${article.id}`, {
-      ...article,
-    });
+    const { data } = await axios.patch(`/api/articles/${article.id}`, {...article});
     return await dispatch({
       type: 'EDIT_ARTICLE',
       article: data,
