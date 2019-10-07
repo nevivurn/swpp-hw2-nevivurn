@@ -40,21 +40,20 @@ const article = (state = initialState, action) => {
       const createComments = [ ...state.comments, action.comment ];
       return { ...state, comments: createComments };
 
+    case 'EDIT_COMMENT':
+      const editComments = state.comments.map(
+        comment => comment.id !== action.commentId ? comment : ({
+          ...comment,
+          content: action.content,
+        }),
+      );
+      return { ...state, comments: editComments };
+
     case 'DELETE_COMMENT':
       const delComments = state.comments.filter(
         comment => comment.id !== action.commentId,
       );
       return { ...state, comments: delComments };
-
-    case 'EDIT_COMMENT':
-      const editComments = state.comments.map(
-        comment => comment.id !== action.commentId ? comment : ({
-          ...comment,
-          commentId: action.commentId,
-          content: action.content,
-        }),
-      );
-      return { ...state, comments: editComments };
 
     default:
       return state;

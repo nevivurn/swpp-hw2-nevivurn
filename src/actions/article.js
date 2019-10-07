@@ -73,16 +73,6 @@ export const createComment = comment => {
   };
 };
 
-export const deleteComment = commentId => {
-  return async dispatch => {
-    await axios.delete(`/api/comments/${commentId}`);
-    return await dispatch({
-      type: 'DELETE_COMMENT',
-      commentId,
-    });
-  };
-};
-
 export const editComment = (commentId, content) => {
   return async dispatch => {
     const { data } = await axios.patch(`/api/comments/${commentId}`, {
@@ -93,6 +83,16 @@ export const editComment = (commentId, content) => {
       type: 'EDIT_COMMENT',
       commentId,
       content: data.content,
+    });
+  };
+};
+
+export const deleteComment = commentId => {
+  return async dispatch => {
+    await axios.delete(`/api/comments/${commentId}`);
+    return await dispatch({
+      type: 'DELETE_COMMENT',
+      commentId,
     });
   };
 };
