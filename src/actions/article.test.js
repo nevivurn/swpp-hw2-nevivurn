@@ -53,7 +53,7 @@ describe('Article Actions', () => {
   });
 
   test('editArticle', async () => {
-    const store = createStore(reducer, {article: {articles: [{id: 1, title: ''}]}}, applyMiddleware(thunk));
+    const store = createStore(reducer, {article: {articles: [{id: 1}, {id: 2}]}}, applyMiddleware(thunk));
 
     const spy = jest.spyOn(axios, 'patch').mockImplementation(
       async (url, data) => {
@@ -64,11 +64,11 @@ describe('Article Actions', () => {
 
     await store.dispatch(editArticle({id: 1, title: 'title'}));
     expect(spy).toHaveBeenCalled();
-    expect(store.getState().article.articles).toEqual([{id: 1, title: 'title'}]);
+    expect(store.getState().article.articles).toEqual([{id: 1, title: 'title'}, {id: 2}]);
   });
 
   test('getArticle', async () => {
-    const store = createStore(reducer, {article: {articles: [{id: 1, title: ''}]}}, applyMiddleware(thunk));
+    const store = createStore(reducer, {article: {articles: [{id: 1}, {id: 2}]}}, applyMiddleware(thunk));
 
     const spy = jest.spyOn(axios, 'get').mockImplementation(
       async url => {
@@ -79,11 +79,11 @@ describe('Article Actions', () => {
 
     await store.dispatch(getArticle(1));
     expect(spy).toHaveBeenCalled();
-    expect(store.getState().article.articles).toEqual([{id: 1, title: 'title'}]);
+    expect(store.getState().article.articles).toEqual([{id: 1, title: 'title'}, {id: 2}]);
   });
 
   test('deleteArticle', async () => {
-    const store = createStore(reducer, {article: {articles: [{id: 1, title: ''}]}}, applyMiddleware(thunk));
+    const store = createStore(reducer, {article: {articles: [{id: 1}]}}, applyMiddleware(thunk));
 
     const spy = jest.spyOn(axios, 'delete').mockImplementation(
       async url => {
@@ -129,7 +129,7 @@ describe('Article Actions', () => {
 
 
   test('editComment', async () => {
-    const store = createStore(reducer, {article: {comments: [{id: 1, content: ''}]}}, applyMiddleware(thunk));
+    const store = createStore(reducer, {article: {comments: [{id: 1}, {id: 2}]}}, applyMiddleware(thunk));
 
     const spy = jest.spyOn(axios, 'patch').mockImplementation(
       async (url, data) => {
@@ -140,7 +140,7 @@ describe('Article Actions', () => {
 
     await store.dispatch(editComment(1, 'content'));
     expect(spy).toHaveBeenCalled();
-    expect(store.getState().article.comments).toEqual([{id: 1, content: 'content'}]);
+    expect(store.getState().article.comments).toEqual([{id: 1, content: 'content'}, {id: 2}]);
   });
 
   test('deleteComment', async () => {
