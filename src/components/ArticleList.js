@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import ArticleStub from './ArticleStub';
 
 // A list of articles.
-const ArticleList = ({ articles, users, createArticle }) => {
+const ArticleList = ({ articles, users }) => {
   const history = useHistory();
 
   const authoredArticles = articles.map(
